@@ -48,3 +48,6 @@ Django version 4.1.3, using settings 'PC503_News_Aggregator.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 ```
+
+### Output
+![news aggregator output](D:\PC503_News_Aggregator\output_images\news_aggregator_output.PNG)
