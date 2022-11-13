@@ -50,4 +50,5 @@ Quit the server with CTRL-BREAK.
 ```
 
 ### Output
-![news aggregator output](D:\PC503_News_Aggregator\output_images\news_aggregator_output.PNG)
+
+![news aggregator output](/output_images/news_aggregator_output.PNG)
