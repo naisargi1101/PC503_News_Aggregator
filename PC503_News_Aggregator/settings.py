@@ -26,20 +26,23 @@ SECRET_KEY = 'django-insecure-%_jgkh$o0s@ey!jg2^0nb1c8swgs0l3@*f1q1xahh$*t7!$3k#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1']
+ALLOWED_HOSTS = ["rtcvideocall.pythonanywhere.com", "django-videocall.herokuapp.com", "localhost","127.0.0.1"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'livereload',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news_home',
-    'base',
+    'call',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +56,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'PC503_News_Aggregator.urls'
+
+ASGI_APPLICATION = 'PC503_News_Aggregator.asgi.application'
 
 TEMPLATES = [
     {
@@ -120,16 +125,18 @@ USE_TZ = True
 
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
+# django_project/settings.py
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]  
+#STATIC_ROOT = BASE_DIR / "staticfiles" 
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"  # new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CHANNEL_LAYERS={
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+     }
+}
